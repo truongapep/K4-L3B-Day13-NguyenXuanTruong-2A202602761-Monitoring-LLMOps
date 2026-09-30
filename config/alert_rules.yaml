@@ -1,0 +1,25 @@
+﻿alerts:
+  - name: HighLatencyP95
+    severity: warning
+    condition: p95(latency_ms) > 3000
+    duration: 5m
+    type: symptom-based
+    channel: slack
+    owner: student-2A202602761
+    runbook: docs/alerts.md#alert-1
+  - name: HighErrorRateOrRetrievalFailure
+    severity: critical
+    condition: error_rate_pct > 2 or retrieval_success_rate_pct < 90
+    duration: 5m
+    type: symptom-based
+    channel: slack
+    owner: student-2A202602761
+    runbook: docs/alerts.md#alert-2
+  - name: CostSpike
+    severity: warning
+    condition: daily_cost_usd > 2.5
+    duration: 15m
+    type: symptom-based
+    channel: slack
+    owner: student-2A202602761
+    runbook: docs/alerts.md#alert-3
